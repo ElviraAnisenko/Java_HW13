@@ -21,8 +21,15 @@ public class Meeting extends Task {
     public String getStart() {
         return start;
     }
+
     @Override
     public boolean matches(String query) {
+        if (query.isEmpty()) {
+            return false;
+        }
+        if (query.equals(" ")) {
+            return false;
+        }
         if (topic.contains(query)) {
             return true;
         }
